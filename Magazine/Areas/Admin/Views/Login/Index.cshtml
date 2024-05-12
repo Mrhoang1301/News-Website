@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+@model Magazine.Areas.Admin.Models.Account
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login Wizard</title>
+    <link href="@Url.Content("~/Assets/admin/css/login-style.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js")" data-deferred="1"></script>
+    <link rel="stylesheet" href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("https://pro.fontawesome.com/releases/v5.10.0/css/all.css")" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="@Url.Content("https://fonts.googleapis.com")">
+    <link rel="preconnect" href="@Url.Content("https://fonts.gstatic.com")" crossorigin>
+    <link href="@Url.Content("https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600&display=swap")" "stylesheet">
+    <link href="@Url.Content("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap")" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js">
+        <div class="animated bounceInDown">
+            <div class="container">
+                <span class="error animated tada" id="msg"></span>
+                @using (Html.BeginForm(null, null, new { },
+                       FormMethod.Post, new { @class = "box", name = "form1", onsubmit = "return checkStuff()" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="logo">
+                        <i class="fas fa-hat-wizard"></i>
+                        <span>Savis News</span>
+                    </div>
+                    <h4>Admin Page</h4>
+                    <h5>Đăng nhập</h5>
+                    @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                    @Html.TextBoxFor(model => model.email, new { @name = "email", @type = "text", @placeholer = "Email", @autocomplete = "off", @autofocus = "autofocus" })
+                    <i class="typcn typcn-eye" id="eye"></i>
+                    @Html.TextBoxFor(model => model.passWord, new { @name = "password", @id = "pwd", @type = "password", @placeholer = "Password", @autocomplete = "off" })
+                    <label class="lb-rmb">
+                        @Html.CheckBoxFor(model => model.remember)
+                        <small class="rmb">Remember me</small>
+                    </label>
+                    <a href="#" class="forgetpass">Forget password?</a>
+                    <input type="submit" value="Sign in" class="btn1">
+                }
+                <a href="#" class="dnthave">Don’t have an account? Sign up</a>
+            </div>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Assets/admin/js/login-script.js")"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\DataAccess.dll.config
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\DataAccess.dll
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\DataAccess.pdb
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.dll
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.xml
+E:\ASPNET\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\ASPNET\Wizard Magazine\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+E:\ASPNET\Wizard Magazine\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+E:\ASPNET\Wizard Magazine\DataAccess\obj\Debug\DataAccess.dll
+E:\ASPNET\Wizard Magazine\DataAccess\obj\Debug\DataAccess.pdb
+E:\ASPNET\Wizard Magazine\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\asus\Downloads\2023-05-27 [12.48.18] 147.T7\Wizard Magazine\DataAccess\obj\Debug\DataAccess.pdb
+D:\DATN\Code\DataAccess\bin\Debug\DataAccess.dll.config
+D:\DATN\Code\DataAccess\bin\Debug\DataAccess.dll
+D:\DATN\Code\DataAccess\bin\Debug\DataAccess.pdb
+D:\DATN\Code\DataAccess\bin\Debug\EntityFramework.dll
+D:\DATN\Code\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\DATN\Code\DataAccess\bin\Debug\EntityFramework.xml
+D:\DATN\Code\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\DATN\Code\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+D:\DATN\Code\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+D:\DATN\Code\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+D:\DATN\Code\DataAccess\obj\Debug\DataAccess.dll
+D:\DATN\Code\DataAccess\obj\Debug\DataAccess.pdb

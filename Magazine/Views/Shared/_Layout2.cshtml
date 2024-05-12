@@ -1,0 +1,600 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="img/Daco_1024187.png" />
+    <title>Savis News</title>
+
+
+    <link href="/Assets/client/eliah/fontawesome/all.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- Spartan font -->
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Slick -->
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+
+
+    <link href="~/Assets/client/eliah/css/reset.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/pre.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/header-a.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/footer-a.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/blog.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/single-post.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/single-post1.css" rel="stylesheet" />
+
+    <link href="/Assets/client/eliah/css/blog2.css" rel="stylesheet" />
+
+
+    <!-- <link rel="stylesheet" href="css/all.css"> -->
+
+    <link href="/Assets/client/css/clientStyle.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#abc11").submit(function () {
+                if (this.name.value == "") {
+                } else {
+                    alert("Subscribe success!");
+                    document.getElementById("form-get-it").reset();
+                }
+                return false;
+            });
+        });
+
+        $(document).ready(function () {
+            $(document).mouseup(function (e) {
+                var container = $(".top-bar__search");
+
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.hide();
+                }
+            });
+
+            $(".post-wish").click(function () {
+                $(".post-wish>i").css('color', '#f26460');
+            });
+            $(".post-wish1").click(function () {
+                $(".post-wish1>i").css('color', '#f26460');
+            });
+            $(".post-wish2").click(function () {
+                $(".post-wish2>i").css('color', '#f26460');
+            });
+            $(".post-wish3").click(function () {
+                $(".post-wish3>i").css('color', '#f26460');
+            });
+            $(".post-wish4").click(function () {
+                $(".post-wish4>i").css('color', '#f26460');
+            });
+            $(".post-wish5").click(function () {
+                $(".post-wish5>i").css('color', '#f26460');
+            });
+            $(".post-wish6").click(function () {
+                $(".post-wish6>i").css('color', '#f26460');
+            });
+            $("#show__search-input").click(function () {
+                $(".top-bar__search").show();
+                $(".top-bar__search").css('display', 'flex');
+            });
+
+            $(".top-bar__icon-cart").click(function () {
+                $(".inside-cart").show();
+                $(".inside-cart").css('opacity', '1');
+
+                // $(".hover-carts").css('display','block');
+                $("#overlay").css('display', 'block');
+            });
+            $(".cart-quantity").click(function () {
+                $(".inside-cart").show();
+                $(".inside-cart").css('opacity', '1');
+                // $(".hover-carts").css('display','block');
+                $("#overlay").css('display', 'block');
+            });
+
+            $("#overlay").click(function () {
+                $(".inside-cart").hide();
+
+                $("#overlay").hide();
+            });
+
+            $("#btn-show-menu").click(function () {
+                $(".top-bar__menu").css('left', '0');
+            });
+
+
+            $("#btn-times").click(function () {
+                $(".top-bar__menu").css('left', '-100%');
+            });
+
+        });
+    </script>
+
+
+</head>
+<body>
+   
+    <header>
+        <section class="top-bar">
+            <div class="top-bar__content">
+                <div>
+                    <div class="top-bar__logo">
+                        <h1>SAVIS</h1>
+                    </div>
+                    <div class="top-bar__menu">
+                        <ul>
+                            <i id="btn-times" class="far fa-times"></i>
+                            <li>
+                                <a href="https://localhost:44356/">Home</a>
+
+                            </li>
+                            <li style="display: none;"><a href="https://localhost:44356/">About</a></li>
+                            <li id="item-home" style="position: relative;">
+                                <a href="https://localhost:44356/">Categories</a>
+                                <div style="z-index: 888;" class="menu-home">
+                                    <a href="https://localhost:44356/"><div><span></span>Breaking News</div></a>
+                                    <a href="https://localhost:44356/"><div><span></span>Thinkpad</div></a>
+                                    <a href="https://localhost:44356/"><div><span></span>Product Reviews</div></a>
+                                    <a href="https://localhost:44356/"><div><span></span>Life Styles</div></a>
+                                    <a href="https://localhost:44356/"><div><span></span>Healthy</div></a>
+                                </div>
+                            </li>
+                            <li style="display: none;" id="item-shop">
+                                <a href="https://localhost:44356/">Shop</a>
+                                <div class="menu-shop">
+                                    <div>
+                                        <div class="list-menu-shop">
+                                            <ul class="list-in-menu-shop">
+                                                <li><a href="full-4col.html"><span>Shop Fullwidth 4Columns</span></a></li>
+                                                <li><a href="ful-5col.html"><span>Shop Fullwidth 5Columns</span></a></li>
+                                                <li><a href="ful-lsb.html"><span>Shop Fullwidth Left Sidebar</span></a></li>
+                                                <li><a href="ful-rsb.html"><span>Shop Fullwidth Right Sidebar</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="list-menu-shop">
+                                            <ul class="list-in-menu-shop">
+                                                <li><a href="shop-grid-4col.html"><span>Shop grid 4Columns</span></a></li>
+                                                <li><a href="shop-grid-3col.html"><span>Shop grid 3Columns</span></a></li>
+                                                <li><a href="shop-grid-sidebar.html"><span>Shop Grid Sideber</span></a></li>
+                                                <li><a href="shop-grid-sidebar.html"><span>Shop List Sidebar</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="list-menu-shop">
+                                            <ul class="list-in-menu-shop">
+                                                <li><a href="product-detail.html"><span>Product Detail</span></a></li>
+                                                <li><a href="shopping-cart.html"><span>Shopping cart</span></a></li>
+                                                <li><a href="checkout.html"><span>Checkout</span></a></li>
+                                                <li><a href="shopping-cart.html"><span>Wish list</span></a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="img-menu-shop">
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="https://localhost:44356/">Contact</a></li>
+                            <li><a href="https://localhost:44356/">Blog</a></li>
+                            @if (Session["USER_SESSION"] != null)
+                            {
+                                DataAccess.EntityFramework.account acc = Session["USER_SESSION"] as DataAccess.EntityFramework.account;
+                                <li>Xin chào @acc.full_name</li>
+                                <li><a href="@Url.Action("Logout", "Account")">Thoát</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
+                                <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="top-bar__cart">
+                        <div id="show__search-input" style="position: relative;">
+                            <i class="fal fa-search stt"></i>
+                            <div class="tool-tip-search">
+                                Search post
+                                <div></div>
+                            </div>
+                            <div class="top-bar__search">
+                                @using (Html.BeginForm("Index", "HomePage", FormMethod.Get, new { @class = "search1-form" }))
+                                {
+
+                                    @Html.TextBox("searchst",
+                                        null,
+                                        new
+                                        {
+                                            id = "searchst",
+                                            @class = "top-bar__search-input"
+                                        })
+                                    <input id="btsearch" value="submit" style="display: none;" type="submit" />
+                                    <label style="position: absolute; top: 8px; right: -20px;" for="btsearch"><i class="fal fa-search"></i></label>
+                                }
+
+                            </div>
+                        </div>
+
+                        <div class="top-bar__shopping-cart">
+                            <div class="top-bar__icon-cart">
+                                <a>
+                                    <i style="font-size: 25px; " class="fal fa-heart"></i>
+                                </a>
+                            </div>
+                            <div style="display: none;" class="cart-quantity">
+                                <span>Cart:</span>
+                                <span>$0.00</span>
+                            </div>
+
+                            <div id="overlay">
+
+                            </div>
+                            <div class="inside-cart">
+                                <div class="title-hover-carts">
+                                    Posts wishlist
+                                </div>
+                                <div class="list-pro-hover-carts">
+                                    <div class="pro-hover-carts">
+                                        <div>
+                                            <div class="show-detail-pro-incart">
+                                                <img src="~/Assets/imgs/anh2.jpg" alt="">
+                                            </div>
+                                            <div>
+                                                <a href="single-post1.html">
+                                                    <div class="pro-hover-carts-title ">
+                                                        Lenovo ThinkPad X1 Carbon Gen 9 & X1 Yoga Gen 6 on sale
+                                                    </div>
+                                                </a>
+                                                <div class="pro-hover-carts-price">
+                                                    <!-- $21.00 -->
+                                                </div>
+                                                <div class="pro-hover-carts-quantity">
+                                                    21 March 2021
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <i class="fal fa-times-circle"></i> -->
+                                    </div>
+
+                                    <div class="pro-hover-carts">
+                                        <div>
+                                            <div class="show-detail-pro-incart">
+                                                <img src="~/Assets/imgs/anh3.jpg" alt="">
+                                            </div>
+                                            <div>
+                                                <a href="single-post1.html">
+                                                    <div class="pro-hover-carts-title">
+                                                       The best 13-inch laptop for 2021
+                                                    </div>
+                                                </a>
+                                                <div class="pro-hover-carts-price">
+                                                    <!-- $21.00 -->
+                                                </div>
+                                                <div class="pro-hover-carts-quantity">
+                                                    14 August 2020
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <i class="fal fa-times-circle"></i> -->
+
+
+                                    </div>
+
+
+                                    <a href="#">
+                                        <div class="button-view-all-post">
+                                            VIEW ALL
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-bar">
+                            <input type="checkbox" id="click-menu">
+                            <label for="click-menu" id="menu-btn">
+                                <i id="btn-show-menu" class="far fa-bars"></i>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div style="z-index: 99; position: relative;">
+                <h1 class="h1hr">Breaking news</h1>
+                <div>
+                    <a href=""><span style="color: white;">Home</span></a>
+                    <span style="color: white;">/</span>
+                    <a href=""><span style="color: white;">Article</span></a>
+                    <span style="color: white;">/</span>
+                    <span style="cursor: default;">Breaking news</span>
+                </div>
+            </div>
+            <div class="ovl-hero"></div>
+        </section>
+
+        <section class="main-content">
+
+            <div class="mc-container">
+                <div class="mc-lsb">
+                    <div class="lsb__search-bar">
+                        <div>
+                            @using (Html.BeginForm("Search", "Article", FormMethod.Get))
+                            {
+                                <input id="it-search-lsb" type="text" placeholder="What are you looking for?" class="top-bar__search-input">
+                                <input name="bttsearch" style="display:none;" type="submit" />
+                                <label for="bttsearch"><i class="fa fa-search"></i></label>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="lsb__follow">
+                        <h2>Follow us</h2>
+                        <div>
+                            <a href="">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    @*<div class="lsb__category">
+                        <h2>Categories</h2>
+                        <div>
+                            <a href="">
+                                <span>Knowledge</span>
+                                <span>112</span>
+                            </a>
+                            <a href="">
+                                <span>Thinkpad</span>
+                                <span>218</span>
+                            </a>
+                            <a href="">
+                                <span>Healthy</span>
+                                <span>69</span>
+                            </a>
+                            <a href="lifestyle.html">
+                                <span>Life Styles</span>
+                                <span>72</span>
+                            </a>
+                            <a href="">
+                                <span>Product Reviews</span>
+                                <span>88</span>
+                            </a>
+                        </div>
+                    </div>*@
+
+                    <div class="lsb__popular-post">
+                        <h2>Popular posts</h2>
+                        <div>
+                            <div class="lsb__pp-post">
+                                <div>
+                                    <img src="https://savis.vn/wp-content/uploads/2024/03/image-5-e1709963798707.jpeg" alt="">
+                                </div>
+                                <div class="title">
+                                    <h3><a href="https://localhost:44356/HomePage/Detail/13">SAVIS INTERNATIONAL WOMEN’S DAY 2024: Bloom – Tôn vinh phái đẹp, lan tỏa yêu thương</a></h3>
+          
+                                </div>
+                            </div>
+                            <div class="lsb__pp-post">
+                                <div>
+                                    <img src="https://savis.vn/wp-content/uploads/2024/03/savis-va-controlcase-ky-bien-ban-ghi-nho-1024x675.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    <h3><a href="#">SAVIS và ControlCase ký biên bản ghi nhớ hợp tác toàn diện </a></h3>
+                                    
+                                </div>
+                            </div>
+                            <div class="lsb__pp-post">
+                                <div>
+                                    <img src="https://savis.vn/wp-content/uploads/2024/04/savis-phoi-hop-bao-hai-phong-khai-truong-toa-soan-dien-tu-2-e1712051752996.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    <h3><a href="#">SAVIS phối hợp Báo Hải Phòng khai trương Tòa soạn điện tử, ra mắt giao diện Báo điện tử mới </a></h3>
+                                    
+                                </div>
+                            </div>
+                            <div class="lsb__pp-post">
+                                <div>
+                                    <img src="https://savis.vn/wp-content/uploads/2024/02/TRH_4563-1024x683.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    <h3><a href="#">SAVIS CYBER NIGHT 2023: Recoding the Future – Tiên phong công nghệ, định hình tương lai</a></h3>
+                                   
+                                </div>
+                            </div>
+                            @*<div class="lsb__pp-post">
+                                <div>
+                                    <img src="~/Assets/imgs/anh5.jpg" alt="">
+
+                                </div>
+                                <div class="title">
+                                    <h3><a href="#">Coconut milk rice pudding with ginger</a></h3>
+                                   
+                                </div>
+                            </div>*@
+                        </div>
+                    </div>
+
+                    <div class="lsb__newsletter">
+                        <h2>Newsletter</h2>
+                        <div>Subscribe to our newsletter and get our newest updates right on your inbox.</div>
+                        <form id="abc11" action="">
+                            <input class="ip-email-aa" type="email" placeholder="Your email" required>
+                            <div style="margin-top: 10px;">
+
+                                <input type="checkbox" id="cb-newsletter">
+                                <label for="cb-newsletter">I agree to the terms & conditions</label>
+                                <input class="sub-butt" type="submit" value="SUBSCRIBE"></input>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+                @RenderBody()
+            </div>
+
+        </section>
+
+        <section class="bottom-list-img">
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-a">
+            <div class="footer__content">
+                <div class="footer__contact">
+                    <div>
+                        <h1>SAVIS</h1>
+                    </div>
+                    <div>
+                        <form class="form-sub" action="">
+                            <label id="sub-newsletter" for="input-email">Subscribe Newletter</label>
+                            <div>
+                                <input type="text" id="input-email" placeholder="Your email">
+                                <div class="icon-ariplane">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <a href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-detail">
+                    <div>
+                        <div>
+                            Contact info
+                        </div>
+                        <ul class="list-contact">
+                            <li>
+                                <span>Address:</span>
+                                <span>9 Duy Tân, Cầu Giấy, Hà Nội</span>
+                            </li>
+                            <li>
+                                <span>Phone:</span>
+                                <span>0979220762</span>
+                            </li>
+                            <li>
+                                <span>Email:</span>
+                                <span>savis@gmail.com</span>
+                            </li>
+                            <li>
+                                <span>Opentime:</span>
+                                <span>8.00am - 5.00.pm </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="display: none;">
+                        <div>
+                            Account
+                        </div>
+                        <ul class="list-account">
+                            <li><a href="">My account</a></li>
+                            <li><a href="">Wishlist</a></li>
+                            <li><a href="">Cart</a></li>
+                            <li><a href="">Shop</a></li>
+                            <li><a href="">Checkout</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div>
+                            Information
+                        </div>
+                        <ul class="list-information">
+                            <li><a href="">About us</a></li>
+                            <li><a href="">Careers</a></li>
+                            <li><a href="">Delivery Information</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="">Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                    <div style="display: none;">
+                        <div>
+                            Payment methods
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit gravida facilisis. </p>
+                        <div class="logo-payment">
+                            <img src="icon/paypal_icon.png" alt="">
+                            <img src="icon/visa_icon.png" alt="">
+                            <img src="icon/mastercard_icon.png" alt="">
+                            <img src="icon/cirrus_icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-copyright">
+            <div>
+                <div>
+                    Savis News
+                </div>
+                <div>
+                    <span><a href="">Privacy Policy</a></span>
+                    <span>|</span>
+                    <span><a href="">Terms & Conditions</a></span>
+                    <span>|</span>
+                    <span><a href="">Site Map</a></span>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- Slick -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
+    @RenderSection("ClientScript1", required: false);
+</body>
+</html>

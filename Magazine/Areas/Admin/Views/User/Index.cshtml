@@ -1,0 +1,86 @@
+﻿@model  IEnumerable<DataAccess.EntityFramework.user>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid admin-artcles">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Articles</h1>
+    <p class="mb-4">
+        List of all articles in database
+    </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Articles</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Full name</th>
+                            <th>Avatar</th>
+                            <th>Description</th>
+                            <th>Control</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Full name</th>
+                            <th>Avatar</th>
+                            <th>Description</th>
+                            <th>Control</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.user_id">
+                                <td><div>@item.user_id</div></td>
+                                <td><div>@item.usename</div></td>
+                                <td><div>@item.email</div></td>
+                                <td><div>@item.password</div></td>
+                                <td><div>@item.full_name</div></td>
+                                <td><div>@item.avatar</div></td>
+                                <td><div>@item.sefl_des</div></td>
+                                <td>
+                                    <div>@Html.ActionLink("Details", "Details", new { id = item.user_id })</div>
+                                    <div>@Html.ActionLink("Edit", "Edit", new { id = item.user_id })</div>
+                                    <div>
+                                            @Ajax.ActionLink("Delete", "Delete", new { @id = item.user_id }, new AjaxOptions
+                                           {
+                                               Confirm = "Xác nhận xóa user có username: \"" + @item.usename + "\"?",
+                                               OnComplete = "$('#row_" + item.user_id + "').remove()",
+                                               HttpMethod = "Delete"
+                                           })
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+<!-- End of Main Content -->

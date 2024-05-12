@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DataAccess.EntityFramework.comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid admin-artcles">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Articles</h1>
+    <p class="mb-4">
+        List of all articles in database
+    </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Articles</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>User id</th>
+                            <th>Article id</th>
+                            <th>Content</th>
+                            <th>Create time</th>
+                            <th>Control</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>User id</th>
+                            <th>Article id</th>
+                            <th>Content</th>
+                            <th>Create time</th>
+                            <th>Control</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.cmt_id">
+                                <td><div>@item.cmt_id</div></td>
+                                <td><div>@item.user_id</div></td>
+                                <td><div>@item.article_id</div></td>
+                                <td><div>@item.cmt_cotnent</div></td>
+                                <td><div>@(item.create_time.HasValue?item.create_time.Value.ToString("G") : "")</div></td>
+
+                                <td>
+                                    <div>
+                                        @Ajax.ActionLink("Delete", "Delete", new { @id = item.cmt_id }, new AjaxOptions
+                                   {
+                                       Confirm = "Xác nhận xóa bình luận có id: \"" + @item.cmt_id + "\"?",
+                                       OnComplete = "$('#row_" + item.cmt_id + "').remove()",
+                                       HttpMethod = "Delete"
+                                   })
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+<!-- End of Main Content -->

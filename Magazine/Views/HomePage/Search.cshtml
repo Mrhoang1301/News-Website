@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DataAccess.EntityFramework.article>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+<div class="mc-post">
+    <div class="list-normal-post">
+        @foreach (var item in Model)
+        {
+
+            <div class="mp">
+                <div class="mp-img">
+                    <img src="@Html.DisplayFor(modelItem => item.image)" alt="">
+                    <div class="post-wish1">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="mp-title">
+                    <div style="position: relative; z-index: 10;">
+                        <div class="lp-date">
+                            <div>@Html.DisplayFor(modelItem => item.create_time)</div>
+                            <span>@Html.DisplayFor(modelItem => item.create_time)</span>
+                        </div>
+                        <div class="mp-nav">
+                            <span>by</span>
+                            <span>Pham Thanh</span>
+                            <span>/</span>
+                            <span>Breaking news</span>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="">
+                            @Html.DisplayFor(modelItem => item.title)
+                        </a>
+                    </div>
+                    <div style="max-height: 50px; overflow: hidden">
+                        @Html.DisplayFor(modelItem => item.textbody)
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+ 
+
+</div>

@@ -1,0 +1,121 @@
+﻿@model DataAccess.EntityFramework.article
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@section ClientScript1{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).mouseup(function (e) {
+                var container = $(".top-bar__search");
+
+                if (!container.is(e.target) && container.has(e.target).length === 0) {
+                    container.hide();
+                }
+            });
+
+
+            window.onload = function () {
+                $('.content-post__img').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    // centerMode: true,
+                    // focusOnSelect: true,
+                    arrows: true,
+                    infinite: true,
+                    // speed: 300,
+                    slidesToShow: 1,
+                    adaptiveHeight: true,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                });
+            };
+
+        });
+    </script>
+    }
+
+
+<div class="mc-post">
+    <div class="mcp__large-post">
+        <div>
+            <div class="mcp__lp-title">
+                <div class="lp-date">
+                    <div>@(Model.create_time.HasValue?Model.create_time.Value.ToString("dd") : "")</div>
+                    <span>@(Model.create_time.HasValue?Model.create_time.Value.ToString("MM") : "")</span>
+                </div>
+                <div class="lp-title">
+                    <div>
+                        <span>by</span>
+                        <span>Huy Hoàng</span>
+                        <span>/</span>
+                        <span>Breaking news</span>
+                    </div>
+                    <a href="single-post1.html">
+                        <div>
+                            @Html.Raw(Model.title)
+                        </div>
+                    </a>
+
+                    <div class="post-wishh">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content-post">
+                @Html.Raw(Model.textbody)
+            </div>
+
+            <div class="tag-share">
+                <div class="ts-tag">
+                    <span>Tag:</span>
+                    <div>Thinkpad</div>
+                    <div>Videos</div>
+                    <div>Reviews</div>
+                </div>
+                <div class="ts-share">
+                    <span>Share:</span>
+                    <i class="fab fa-facebook-f"><a href=""></a></i>
+                    <i class="fab fa-twitter"><a href=""></a></i>
+                    <i class="fab fa-instagram"><a href=""></a></i>
+                    <i class="fab fa-youtube"><a href=""></a></i>
+                </div>
+            </div>
+
+            <div class="p-n">
+                <a href="" class="pn-pre">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>PREV POSTS</span>
+                </a>
+                <a href="" class="pn-next">
+                    <span>NEXT POSTS</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="comments">
+                <div>Leave a comment</div>
+                <form action="">
+                    <div class="list-input-sp">
+                        <input type="text" name="" id="" placeholder="Name">
+                        <input type="text" name="" id="" placeholder="Email">
+                        <input type="text" name="" id="" placeholder="Website">
+                    </div>
+                    <textarea name="" id="txt-cmt" placeholder="Comment"></textarea>
+                    <div class="btn-sb-cmtt">
+                        <input id="btn-sb-cmt" type="submit" value="SUBMIT COMMENT">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+

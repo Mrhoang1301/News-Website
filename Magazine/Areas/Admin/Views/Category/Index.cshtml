@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DataAccess.EntityFramework.category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+    <p class="mb-4">
+        List of all categories in database
+    </p>
+    <p class="link-create">
+        @Html.ActionLink("Create a new category", "Create")
+    </p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Categories</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Category id</th>
+                            <th>Catogory name</th>
+                            <th>Control</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.cate_id">
+                                <td>@item.cate_id</td>
+                                <td>@item.cate_name</td>
+                                <td>
+                                    
+                                    <div>
+                                           @Ajax.ActionLink("Delete", "Delete", new { @id = item.cate_id }, new AjaxOptions
+                                          {
+                                              Confirm="Xác nhận xóa thể loại \""+@item.cate_name + "\"?",
+                                              OnComplete = "$('#row_"+item.cate_id+"').remove()",
+                                              HttpMethod = "Delete"
+                                          })
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+<!-- End of Main Content -->

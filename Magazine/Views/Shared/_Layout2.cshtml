@@ -137,7 +137,42 @@
 
 </head>
 <body>
-   
+
+    <style>
+        .lsb__search-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        .filter-item {
+            margin-right: 10px;
+        }
+
+            .filter-item:last-child {
+                margin-right: 0;
+            }
+
+            .filter-item select {
+                padding: 5px;
+                border: none;
+                background-color: transparent;
+                font-size: 14px;
+                color: #333;
+            }
+
+                .filter-item select option:first-child {
+                    color: #999;
+                }
+    </style>
     <header>
         <section class="top-bar">
             <div class="top-bar__content">
@@ -153,16 +188,6 @@
 
                             </li>
                             <li style="display: none;"><a href="https://localhost:44356/">About</a></li>
-                            <li id="item-home" style="position: relative;">
-                                <a href="https://localhost:44356/">Categories</a>
-                                <div style="z-index: 888;" class="menu-home">
-                                    <a href="https://localhost:44356/"><div><span></span>Breaking News</div></a>
-                                    <a href="https://localhost:44356/"><div><span></span>Thinkpad</div></a>
-                                    <a href="https://localhost:44356/"><div><span></span>Product Reviews</div></a>
-                                    <a href="https://localhost:44356/"><div><span></span>Life Styles</div></a>
-                                    <a href="https://localhost:44356/"><div><span></span>Healthy</div></a>
-                                </div>
-                            </li>
                             <li style="display: none;" id="item-shop">
                                 <a href="https://localhost:44356/">Shop</a>
                                 <div class="menu-shop">
@@ -287,7 +312,7 @@
                                             <div>
                                                 <a href="single-post1.html">
                                                     <div class="pro-hover-carts-title">
-                                                       The best 13-inch laptop for 2021
+                                                        The best 13-inch laptop for 2021
                                                     </div>
                                                 </a>
                                                 <div class="pro-hover-carts-price">
@@ -346,16 +371,17 @@
             <div class="mc-container">
                 <div class="mc-lsb">
                     <div class="lsb__search-bar">
-                        <div>
-                            @using (Html.BeginForm("Search", "Article", FormMethod.Get))
-                            {
-                                <input id="it-search-lsb" type="text" placeholder="What are you looking for?" class="top-bar__search-input">
-                                <input name="bttsearch" style="display:none;" type="submit" />
-                                <label for="bttsearch"><i class="fa fa-search"></i></label>
-                            }
-                        </div>
+                        <h2>Categories</h2>
+                        <br>
+                        @using (Html.BeginForm("Index", "HomePage", FormMethod.Get, new { id = "categoryForm" }))
+                        {
+                            <div class="filter-bar">
+                                <div class="filter-item">
+                                    @Html.DropDownList("cateId", ViewBag.Categories as SelectList, "All Categories", new { id = "categoryDropdown" })
+                                </div>
+                            </div>
+                        }
                     </div>
-
                     <div class="lsb__follow">
                         <h2>Follow us</h2>
                         <div>
@@ -375,30 +401,30 @@
                     </div>
 
                     @*<div class="lsb__category">
-                        <h2>Categories</h2>
-                        <div>
-                            <a href="">
-                                <span>Knowledge</span>
-                                <span>112</span>
-                            </a>
-                            <a href="">
-                                <span>Thinkpad</span>
-                                <span>218</span>
-                            </a>
-                            <a href="">
-                                <span>Healthy</span>
-                                <span>69</span>
-                            </a>
-                            <a href="lifestyle.html">
-                                <span>Life Styles</span>
-                                <span>72</span>
-                            </a>
-                            <a href="">
-                                <span>Product Reviews</span>
-                                <span>88</span>
-                            </a>
-                        </div>
-                    </div>*@
+                            <h2>Categories</h2>
+                            <div>
+                                <a href="">
+                                    <span>Knowledge</span>
+                                    <span>112</span>
+                                </a>
+                                <a href="">
+                                    <span>Thinkpad</span>
+                                    <span>218</span>
+                                </a>
+                                <a href="">
+                                    <span>Healthy</span>
+                                    <span>69</span>
+                                </a>
+                                <a href="lifestyle.html">
+                                    <span>Life Styles</span>
+                                    <span>72</span>
+                                </a>
+                                <a href="">
+                                    <span>Product Reviews</span>
+                                    <span>88</span>
+                                </a>
+                            </div>
+                        </div>*@
 
                     <div class="lsb__popular-post">
                         <h2>Popular posts</h2>
@@ -409,7 +435,7 @@
                                 </div>
                                 <div class="title">
                                     <h3><a href="https://localhost:44356/HomePage/Detail/13">SAVIS INTERNATIONAL WOMEN’S DAY 2024: Bloom – Tôn vinh phái đẹp, lan tỏa yêu thương</a></h3>
-          
+
                                 </div>
                             </div>
                             <div class="lsb__pp-post">
@@ -418,7 +444,7 @@
                                 </div>
                                 <div class="title">
                                     <h3><a href="#">SAVIS và ControlCase ký biên bản ghi nhớ hợp tác toàn diện </a></h3>
-                                    
+
                                 </div>
                             </div>
                             <div class="lsb__pp-post">
@@ -427,7 +453,7 @@
                                 </div>
                                 <div class="title">
                                     <h3><a href="#">SAVIS phối hợp Báo Hải Phòng khai trương Tòa soạn điện tử, ra mắt giao diện Báo điện tử mới </a></h3>
-                                    
+
                                 </div>
                             </div>
                             <div class="lsb__pp-post">
@@ -436,19 +462,19 @@
                                 </div>
                                 <div class="title">
                                     <h3><a href="#">SAVIS CYBER NIGHT 2023: Recoding the Future – Tiên phong công nghệ, định hình tương lai</a></h3>
-                                   
+
                                 </div>
                             </div>
                             @*<div class="lsb__pp-post">
-                                <div>
-                                    <img src="~/Assets/imgs/anh5.jpg" alt="">
+                                    <div>
+                                        <img src="~/Assets/imgs/anh5.jpg" alt="">
 
-                                </div>
-                                <div class="title">
-                                    <h3><a href="#">Coconut milk rice pudding with ginger</a></h3>
-                                   
-                                </div>
-                            </div>*@
+                                    </div>
+                                    <div class="title">
+                                        <h3><a href="#">Coconut milk rice pudding with ginger</a></h3>
+
+                                    </div>
+                                </div>*@
                         </div>
                     </div>
 
@@ -598,3 +624,49 @@
     @RenderSection("ClientScript1", required: false);
 </body>
 </html>
+<script>
+    var categoryDropdown = document.getElementById("categoryDropdown");
+    categoryDropdown.addEventListener("change", function () {
+        document.getElementById("categoryForm").submit();
+    });
+</script>
+<style>
+    .lsb__search-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    .filter-bar {
+        display: flex;
+        align-items: center;
+        background-color: #f2f2f2;
+        border-radius: 4px;
+        padding: 5px;
+    }
+
+    .filter-item {
+        margin-right: 10px;
+    }
+
+        .filter-item:last-child {
+            margin-right: 0;
+        }
+
+        .filter-item select {
+            padding: 5px;
+            border: none;
+            background-color: transparent;
+            font-size: 14px;
+            color: #333;
+        }
+
+            .filter-item select option:first-child {
+                color: #999;
+            }
+</style>

@@ -5,12 +5,10 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-
 <div class="mc-post">
     <div class="list-normal-post">
         @foreach (var item in Model)
         {
-
             <div class="mp">
                 <div class="mp-img">
                     <img src="@Html.DisplayFor(modelItem => item.image)" alt="">
@@ -36,7 +34,7 @@
                             <span>@Html.Raw(item.title)</span>
                         </a>
                     </div>
-                    <div class="pretext" style="">                       
+                    <div class="pretext" style="">
                         @Html.Raw(item.textbody)
                     </div>
                 </div>

@@ -34,3 +34,15 @@ D:\DATN\Code\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 D:\DATN\Code\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 D:\DATN\Code\DataAccess\obj\Debug\DataAccess.dll
 D:\DATN\Code\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\PC\Desktop\Hoang_DoAn\DATN\DataAccess\obj\Debug\DataAccess.pdb

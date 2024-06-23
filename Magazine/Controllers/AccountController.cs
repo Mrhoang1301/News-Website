@@ -18,7 +18,6 @@ namespace Magazine.Controllers
             AccountModel = new AccountModel();
         }
 
-        // GET: Account
         [HttpGet]
         public ActionResult Login()
         {
@@ -33,7 +32,6 @@ namespace Magazine.Controllers
             {
                 return View(model);
             }
-
             try
             {
                 account acc = AccountModel.Login(model.Email, model.Password);

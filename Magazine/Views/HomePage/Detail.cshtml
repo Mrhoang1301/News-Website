@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout2.cshtml";
+    var commentModel = ViewBag.CommentModel as DataAccess.EntityFramework.comment;
 }
 
 @section ClientScript1{
@@ -16,17 +17,13 @@
                 }
             });
 
-
             window.onload = function () {
                 $('.content-post__img').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     dots: true,
-                    // centerMode: true,
-                    // focusOnSelect: true,
                     arrows: true,
                     infinite: true,
-                    // speed: 300,
                     slidesToShow: 1,
                     adaptiveHeight: true,
                     autoplay: true,
@@ -59,24 +56,21 @@
                             @Html.Raw(Model.title)
                         </div>
                     </a>
-
                     <div class="post-wishh">
                         <i class="fas fa-heart"></i>
                     </div>
                 </div>
-
             </div>
             <div class="content-post">
                 @Html.Raw(Model.textbody)
             </div>
-
             <div class="tag-share">
-                <div class="ts-tag">
+                @*<div class="ts-tag">
                     <span>Tag:</span>
                     <div>Thinkpad</div>
                     <div>Videos</div>
                     <div>Reviews</div>
-                </div>
+                </div>*@
                 <div class="ts-share">
                     <span>Share:</span>
                     <i class="fab fa-facebook-f"><a href=""></a></i>
@@ -85,37 +79,116 @@
                     <i class="fab fa-youtube"><a href=""></a></i>
                 </div>
             </div>
-
-            <div class="p-n">
-                <a href="" class="pn-pre">
-                    <i class="fas fa-chevron-left"></i>
-                    <span>PREV POSTS</span>
-                </a>
-                <a href="" class="pn-next">
-                    <span>NEXT POSTS</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </div>
-
-            <div class="comments">
-                <div>Leave a comment</div>
-                <form action="">
+            @using (Html.BeginForm("Comment", "HomePage", new { articleId = Model.article_id }, FormMethod.Post, new { @class = "comment-form", onsubmit = "return checkLogin();" }))
+            {
+                <div class="comments">
                     <div class="list-input-sp">
-                        <input type="text" name="" id="" placeholder="Name">
-                        <input type="text" name="" id="" placeholder="Email">
-                        <input type="text" name="" id="" placeholder="Website">
+                        @Html.HiddenFor(m => m.article_id)
+                        @Html.TextArea("commentContent", null, new { @class = "comment-textarea", placeholder = "Write your comment", oninput = "checkTextArea();" })
+                        @if (!string.IsNullOrEmpty(ViewBag.CommentContentError))
+                        {
+                            <p class="error-message">@ViewBag.CommentContentError</p>
+                        }
                     </div>
-                    <textarea name="" id="txt-cmt" placeholder="Comment"></textarea>
-                    <div class="btn-sb-cmtt">
-                        <input id="btn-sb-cmt" type="submit" value="SUBMIT COMMENT">
+                    <div class="btn-sb-cmtt" style="float:right">
+                        <input id="btn-sb-cmt" style="font-size:15px" type="submit" value="Submit" class="comment-submit-btn" disabled>
                     </div>
-                </form>
+                </div>
+            }
+            <div style="margin-top:70px">
+                @if (ViewBag.Comments != null)
+                {
+                    <h3 class="comments-heading">Comments:</h3>
+                    <ul class="comments-list">
+                        @foreach (var comment in ViewBag.Comments)
+                        {
+                            <li class="comment-item">
+                                <span class="comment-author">@comment.Account.full_name :</span>
+                                <span class="comment-time">@comment.create_time</span>
+                                <br>
+                                <span class="comment-content">@comment.cmt_cotnent</span>
+                                <br>
+                                <br>
+                            </li>
+                        }
+                    </ul>
+                }
             </div>
-
         </div>
     </div>
-
-
 </div>
+<style>
+    .comment-form {
+        margin-top: 20px;
+    }
+
+    .comment-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .comment-textarea {
+        width: 100%;
+        height: 100px;
+        padding: 5px;
+        border-radius : 7px;
+    }
+
+    .comment-submit-btn {
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius:6px;
+        margin-top:3px;
+    }
+
+        .comment-submit-btn:hover {
+            background-color: #23527c;
+        }
+
+    .comments-heading {
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 10px;
+    }
+
+    .comments-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .comment-item {
+        margin-bottom: 10px;
+    }
+
+    .comment-author {
+        font-weight: bold;
+        font-size:24px
+    }
+
+    .comment-time {
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+    .comment-content {
+        font-size: 16px;
+    }
+</style>
+<script>
+    function checkTextArea() {
+        var commentContent = document.getElementById("commentContent").value;
+        var submitButton = document.getElementById("btn-sb-cmt");
+
+        if (commentContent.trim() !== "") {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+</script>
 
 

@@ -9,7 +9,6 @@ namespace Magazine.Areas.Admin.Controllers
 {
     public class ArticleController : Controller
     {
-        // GET: Admin/Article
         public ActionResult Index()
         {
             var iplArticles = new ArticleModel();
@@ -17,13 +16,62 @@ namespace Magazine.Areas.Admin.Controllers
             return View(model);
         }
 
-        // GET: Admin/Article/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Detail(int? id)
         {
-            return View();
+            var iplCate = new CategoryModel();
+            var categories = iplCate.listAllCate();
+            ViewBag.Categories = new SelectList(categories, "cate_id", "cate_name");
+            var impArticle = new ArticleModel();
+            var modell = impArticle.getByID(id);
+            var commentModel = new CommentModel();
+            var comments = commentModel.GetCommentsByArticleId(id);
+            ViewBag.Comments = comments;
+            TempData["ArticleId"] = id;
+            return View(modell);
         }
 
-        // GET: Admin/Article/Create
+        [HttpPost]
+        public ActionResult Comment(int articleId)
+        {
+            string commentContent = Request.Form["commentContent"];
+            if (string.IsNullOrEmpty(commentContent))
+            {
+                ViewBag.CommentContentError = "Please enter a comment.";
+                return View("Detail", articleId);
+            }
+            var sensitiveWords = new List<string> { "ditme", "dit", "lon" };
+            foreach (var word in sensitiveWords)
+            {
+                if (commentContent.IndexOf(word, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    commentContent = commentContent.Replace(word, new string('*', word.Length));
+                }
+            }
+            var commentModel = new CommentModel();
+            var user = Session["USER_SESSION"] as account;
+            if (user == null)
+            {
+                return RedirectToAction("Detail", new { id = articleId });
+            }
+            var newComment = new comment
+            {
+                article_id = articleId,
+                cmt_cotnent = commentContent,
+                create_time = DateTime.Now,
+                user_id = user.user_id
+            };
+            int result = commentModel.CreateComment(newComment);
+            if (result > 0)
+            {
+                TempData["SuccessMessage"] = "Bình luận đã được tạo thành công.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Không thể tạo bình luận. Vui lòng thử lại.";
+            }
+            return RedirectToAction("Detail", new { id = articleId });
+        }
+
         public ActionResult Create()
         {
             var artmodel = new CategoryModel();
@@ -31,7 +79,6 @@ namespace Magazine.Areas.Admin.Controllers
             return View(new article());
         }
 
-        // POST: Admin/Article/Create
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(article mdarti)
@@ -39,7 +86,6 @@ namespace Magazine.Areas.Admin.Controllers
 
             try
             {
-                // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
                     var artmodel = new ArticleModel();
@@ -64,7 +110,6 @@ namespace Magazine.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Article/Edit/5
         public ActionResult Edit(int id)
         {
             var impArticle = new ArticleModel();
@@ -74,7 +119,6 @@ namespace Magazine.Areas.Admin.Controllers
             return View(modell);
         }
 
-        // POST: Admin/Article/Edit/5
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(article kart)
@@ -90,8 +134,6 @@ namespace Magazine.Areas.Admin.Controllers
 
             try
             {
-
-
                 var model = new ArticleModel();
                 int res = model.UpdateArticle(kart);
 
@@ -102,7 +144,6 @@ namespace Magazine.Areas.Admin.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Chỉnh sửa bài viết không thành công!");
-                    // return Content("<script language='javascript' type='text/javascript'>alert('" + res + kart.title + "');</script>");
                 }
             }
             catch (Exception ex)
@@ -112,7 +153,6 @@ namespace Magazine.Areas.Admin.Controllers
             return View(kart);
         }
 
-        // GET: Admin/Article/Delete/5
         public ActionResult Delete(int id)
         {
             ArticleModel catemd = new ArticleModel();
@@ -120,20 +160,12 @@ namespace Magazine.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST: Admin/Article/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteCmt(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            int articleId = (int)TempData["ArticleId"];
+            CommentModel catemd = new CommentModel();
+            catemd.DeleteCmt(id);
+            return RedirectToAction("Detail", new { id = articleId });
         }
     }
 }

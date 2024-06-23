@@ -1,0 +1,58 @@
+﻿@model  IEnumerable<DataAccess.EntityFramework.article>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<div class="container">
+    <div class="container-fluid admin-artcles">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">List Pending Articles</h1>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Text body</th>
+                                <th>Image</th>
+                                <th>Category id</th>
+                                <th>Status</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.article_id">
+                                    <td style="min-width: 150px;"><div>@item.title</div></td>
+                                    <td style="max-width: 300px;"><div>@Html.Raw(item.textbody)</div></td>
+                                    <td><div><img style="max-width: 150px" src="@item.image" /></div></td>
+                                    <td><div>@item.cate_id</div></td>
+                                    <td>
+                                        <div style="color:@(
+                        item.status == null ? "green" :
+                        item.status.ToString() == "1" ? "orange" :
+                        item.status.ToString() == "2" ? "red" : "inherit"
+                    )">
+                                            @(
+                            item.status == null ? "Approved" :
+                            item.status.ToString() == "1" ? "Pending" :
+                            item.status.ToString() == "2" ? "Cancel" :
+                            item.status.ToString()
+                        )
+                                        </div>
+                                    </td>
+                                    <td><div>@item.note</div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

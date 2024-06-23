@@ -1,0 +1,119 @@
+﻿@model DataAccess.EntityFramework.article
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="container">
+    <div class="mc-post">
+        <div class="mcp__large-post">
+            <div>
+                <div class="mcp__lp-title">
+                    <div class="lp-title">
+                        <div>
+                            <span>by</span>
+                            <span>Huy Hoàng</span>
+                            <span>/</span>
+                            <span>Breaking news</span>
+                        </div>
+                        <a href="single-post1.html">
+                            <div>
+                                @Html.Raw(Model.title)
+                            </div>
+                        </a>
+                        <div class="post-wishh">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-post">
+                    @Html.Raw(Model.textbody)
+                </div>
+                <div style="margin-top:70px">
+                    @if (ViewBag.Comments != null)
+                    {
+                        <h3 class="comments-heading">Comments:</h3>
+                        <ul class="comments-list">
+                            @foreach (var comment in ViewBag.Comments)
+                            {
+                                <li class="comment-item">
+                                    <span class="comment-author">@comment.Account.full_name :</span>
+                                    <span class="comment-time">@comment.create_time</span>
+                                    <br>
+                                    <span class="comment-content">@comment.cmt_cotnent</span>
+                                    <br>
+                                    <br>
+                                    <a href="@Url.Action("DeleteCmt", "Article" ,new { id = comment.cmt_id, articleId = ViewBag.ArticleId })" class="btn btn-danger btn-sm">Delete</a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .comment-form {
+        margin-top: 20px;
+    }
+
+    .comment-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .comment-textarea {
+        width: 100%;
+        height: 100px;
+        padding: 5px;
+        border-radius: 7px;
+    }
+
+    .comment-submit-btn {
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 6px;
+        margin-top: 3px;
+    }
+
+        .comment-submit-btn:hover {
+            background-color: #23527c;
+        }
+
+    .comments-heading {
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 10px;
+    }
+
+    .comments-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .comment-item {
+        margin-bottom: 10px;
+    }
+
+    .comment-author {
+        font-weight: bold;
+        font-size: 24px
+    }
+
+    .comment-time {
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+    .comment-content {
+        font-size: 16px;
+    }
+</style>
+
+

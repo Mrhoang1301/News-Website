@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var loginUrl = Url.Action("Login", "Account");
+    var loginUrlAdmin = Url.Action("Index", "Login", new { area = "Admin" });
+    var registerUrl = Url.Action("Register", "Account");
+    var Create = Url.Action("Create", "HomePage");
+    var Pending = Url.Action("PendingArticle", "HomePage");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,6 +55,34 @@
     <link href="/Assets/client/eliah/css/single-post1.css" rel="stylesheet" />
 
     <link href="/Assets/client/eliah/css/blog2.css" rel="stylesheet" />
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/Assets/admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/Assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/Assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+    <script src="/Assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
+    <script src="/Assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/Assets/admin/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/Assets/admin/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Assets/admin/js/demo/chart-area-demo.js"></script>
+    <script src="/Assets/admin/js/demo/chart-pie-demo.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/Assets/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/Assets/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <script src="/Assets/admin/js/demo/datatables-demo.js"></script>
 
 
     <!-- <link rel="stylesheet" href="css/all.css"> -->
@@ -183,161 +218,126 @@
                     <div class="top-bar__menu">
                         <ul>
                             <i id="btn-times" class="far fa-times"></i>
-                            <li>
+                            <li style="margin-right:20px">
                                 <a href="https://localhost:44356/">Home</a>
 
                             </li>
-                            <li style="display: none;"><a href="https://localhost:44356/">About</a></li>
-                            <li style="display: none;" id="item-shop">
-                                <a href="https://localhost:44356/">Shop</a>
-                                <div class="menu-shop">
-                                    <div>
-                                        <div class="list-menu-shop">
-                                            <ul class="list-in-menu-shop">
-                                                <li><a href="full-4col.html"><span>Shop Fullwidth 4Columns</span></a></li>
-                                                <li><a href="ful-5col.html"><span>Shop Fullwidth 5Columns</span></a></li>
-                                                <li><a href="ful-lsb.html"><span>Shop Fullwidth Left Sidebar</span></a></li>
-                                                <li><a href="ful-rsb.html"><span>Shop Fullwidth Right Sidebar</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="list-menu-shop">
-                                            <ul class="list-in-menu-shop">
-                                                <li><a href="shop-grid-4col.html"><span>Shop grid 4Columns</span></a></li>
-                                                <li><a href="shop-grid-3col.html"><span>Shop grid 3Columns</span></a></li>
-                                                <li><a href="shop-grid-sidebar.html"><span>Shop Grid Sideber</span></a></li>
-                                                <li><a href="shop-grid-sidebar.html"><span>Shop List Sidebar</span></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="list-menu-shop">
-                                            <ul class="list-in-menu-shop">
-                                                <li><a href="product-detail.html"><span>Product Detail</span></a></li>
-                                                <li><a href="shopping-cart.html"><span>Shopping cart</span></a></li>
-                                                <li><a href="checkout.html"><span>Checkout</span></a></li>
-                                                <li><a href="shopping-cart.html"><span>Wish list</span></a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                    <div class="img-menu-shop">
-
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="https://localhost:44356/">Contact</a></li>
-                            <li><a href="https://localhost:44356/">Blog</a></li>
                             @if (Session["USER_SESSION"] != null)
                             {
-                                DataAccess.EntityFramework.account acc = Session["USER_SESSION"] as DataAccess.EntityFramework.account;
-                                <li>Xin chào @acc.full_name</li>
-                                <li><a href="@Url.Action("Logout", "Account")">Thoát</a></li>
+                                <div style="width : 90px;height:30px;margin-right:200px" class="dropdown">
+                                    <select onchange="location = this.value;">
+                                        <option selected disabled hidden></option>
+                                        <option style="color:white" value="@Create">Create article</option>
+                                        <option style="color:white" value="@Pending">Your articles</option>
+                                    </select>
+                                </div>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
-                                <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
                             }
                         </ul>
                     </div>
                     <div class="top-bar__cart">
-                        <div id="show__search-input" style="position: relative;">
+                        @*<div id="show__search-input" style="position: relative;">
                             <i class="fal fa-search stt"></i>
                             <div class="tool-tip-search">
                                 Search post
                                 <div></div>
                             </div>
                             <div class="top-bar__search">
-                                @using (Html.BeginForm("Index", "HomePage", FormMethod.Get, new { @class = "search1-form" }))
-                                {
-
-                                    @Html.TextBox("searchst",
-                                        null,
-                                        new
-                                        {
-                                            id = "searchst",
-                                            @class = "top-bar__search-input"
-                                        })
-                                    <input id="btsearch" value="submit" style="display: none;" type="submit" />
-                                    <label style="position: absolute; top: 8px; right: -20px;" for="btsearch"><i class="fal fa-search"></i></label>
-                                }
-
+                                
                             </div>
-                        </div>
+                        </div>*@
+                        @RenderSection("ClientScript", required: false);
 
-                        <div class="top-bar__shopping-cart">
-                            <div class="top-bar__icon-cart">
-                                <a>
-                                    <i style="font-size: 25px; " class="fal fa-heart"></i>
+                    <div class="top-bar__shopping-cart">
+                        <div class="top-bar__icon-cart" style="margin-right:40px">
+                            <a>
+                                <i style="font-size: 25px" class="fal fa-heart"></i>
+                            </a>
+                        </div>
+                        @if (Session["USER_SESSION"] != null)
+                        {
+                            DataAccess.EntityFramework.account acc = Session["USER_SESSION"] as DataAccess.EntityFramework.account;
+                            <li style="padding-right:10px;">Xin chào @acc.full_name  </li>
+                            <li><a href="@Url.Action("Logout", "Account")">Thoát</a></li>
+                        }
+                        else
+                        {
+                            <div style="width : 90px;height:30px" class="dropdown">
+                                <select onchange="location = this.value;">
+                                    <option selected disabled hidden></option>
+                                    <option style="color:white" value="@loginUrl">Đăng nhập</option>
+                                    <option style="color:white" value="@registerUrl">Đăng ký</option>
+                                    <option style="color:white" value="@loginUrlAdmin">Đăng nhập (ADMIN)</option>
+                                </select>
+                            </div>
+                        }
+
+                        <div id="overlay">
+
+                        </div>
+                        <div class="inside-cart">
+                            <div class="title-hover-carts">
+                                Posts wishlist
+                            </div>
+                            <div class="list-pro-hover-carts">
+                                <div class="pro-hover-carts">
+                                    <div>
+                                        <div class="show-detail-pro-incart">
+                                            <img src="~/Assets/imgs/anh2.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="single-post1.html">
+                                                <div class="pro-hover-carts-title ">
+                                                    Lenovo ThinkPad X1 Carbon Gen 9 & X1 Yoga Gen 6 on sale
+                                                </div>
+                                            </a>
+                                            <div class="pro-hover-carts-price">
+                                                <!-- $21.00 -->
+                                            </div>
+                                            <div class="pro-hover-carts-quantity">
+                                                21 March 2021
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <i class="fal fa-times-circle"></i> -->
+                                </div>
+
+                                <div class="pro-hover-carts">
+                                    <div>
+                                        <div class="show-detail-pro-incart">
+                                            <img src="~/Assets/imgs/anh3.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="single-post1.html">
+                                                <div class="pro-hover-carts-title">
+                                                    The best 13-inch laptop for 2021
+                                                </div>
+                                            </a>
+                                            <div class="pro-hover-carts-price">
+                                                <!-- $21.00 -->
+                                            </div>
+                                            <div class="pro-hover-carts-quantity">
+                                                14 August 2020
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <i class="fal fa-times-circle"></i> -->
+
+
+                                </div>
+
+
+                                <a href="#">
+                                    <div class="button-view-all-post">
+                                        VIEW ALL
+                                    </div>
                                 </a>
-                            </div>
-                            <div style="display: none;" class="cart-quantity">
-                                <span>Cart:</span>
-                                <span>$0.00</span>
-                            </div>
 
-                            <div id="overlay">
-
-                            </div>
-                            <div class="inside-cart">
-                                <div class="title-hover-carts">
-                                    Posts wishlist
-                                </div>
-                                <div class="list-pro-hover-carts">
-                                    <div class="pro-hover-carts">
-                                        <div>
-                                            <div class="show-detail-pro-incart">
-                                                <img src="~/Assets/imgs/anh2.jpg" alt="">
-                                            </div>
-                                            <div>
-                                                <a href="single-post1.html">
-                                                    <div class="pro-hover-carts-title ">
-                                                        Lenovo ThinkPad X1 Carbon Gen 9 & X1 Yoga Gen 6 on sale
-                                                    </div>
-                                                </a>
-                                                <div class="pro-hover-carts-price">
-                                                    <!-- $21.00 -->
-                                                </div>
-                                                <div class="pro-hover-carts-quantity">
-                                                    21 March 2021
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <i class="fal fa-times-circle"></i> -->
-                                    </div>
-
-                                    <div class="pro-hover-carts">
-                                        <div>
-                                            <div class="show-detail-pro-incart">
-                                                <img src="~/Assets/imgs/anh3.jpg" alt="">
-                                            </div>
-                                            <div>
-                                                <a href="single-post1.html">
-                                                    <div class="pro-hover-carts-title">
-                                                        The best 13-inch laptop for 2021
-                                                    </div>
-                                                </a>
-                                                <div class="pro-hover-carts-price">
-                                                    <!-- $21.00 -->
-                                                </div>
-                                                <div class="pro-hover-carts-quantity">
-                                                    14 August 2020
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <i class="fal fa-times-circle"></i> -->
-
-
-                                    </div>
-
-
-                                    <a href="#">
-                                        <div class="button-view-all-post">
-                                            VIEW ALL
-                                        </div>
-                                    </a>
-
-                                </div>
                             </div>
                         </div>
+                    </div>
 
                         <div class="button-bar">
                             <input type="checkbox" id="click-menu">
@@ -369,7 +369,7 @@
         <section class="main-content">
 
             <div class="mc-container">
-                <div class="mc-lsb">
+                <div class="mc-lsb col-md-3">
                     <div class="lsb__search-bar">
                         <h2>Categories</h2>
                         <br>
@@ -381,50 +381,31 @@
                                 </div>
                             </div>
                         }
+                        <br>
+                        <h2>Searching</h2>
+                        @using (Html.BeginForm("Index", "HomePage", FormMethod.Get))
+                        {
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="searchst" placeholder="Search articles..." value="@Request.QueryString["searchst"]" />
+                                <button style="margin-top:10px" class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                           
+                        }
                     </div>
                     <div class="lsb__follow">
                         <h2>Follow us</h2>
                         <div>
-                            <a href="">
+                            <a href="https://www.facebook.com/savisgroup1">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="">
-                                <i class="fab fa-twitter"></i>
+                            <a href="https://savis.vn">
+                                <i class="fab fa-opera"></i>
                             </a>
-                            <a href="">
+                            <a href="https://www.youtube.com/savistechnologygroup5400">
                                 <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="">
-                                <i class="fab fa-instagram"></i>
                             </a>
                         </div>
                     </div>
-
-                    @*<div class="lsb__category">
-                            <h2>Categories</h2>
-                            <div>
-                                <a href="">
-                                    <span>Knowledge</span>
-                                    <span>112</span>
-                                </a>
-                                <a href="">
-                                    <span>Thinkpad</span>
-                                    <span>218</span>
-                                </a>
-                                <a href="">
-                                    <span>Healthy</span>
-                                    <span>69</span>
-                                </a>
-                                <a href="lifestyle.html">
-                                    <span>Life Styles</span>
-                                    <span>72</span>
-                                </a>
-                                <a href="">
-                                    <span>Product Reviews</span>
-                                    <span>88</span>
-                                </a>
-                            </div>
-                        </div>*@
 
                     <div class="lsb__popular-post">
                         <h2>Popular posts</h2>
@@ -465,16 +446,6 @@
 
                                 </div>
                             </div>
-                            @*<div class="lsb__pp-post">
-                                    <div>
-                                        <img src="~/Assets/imgs/anh5.jpg" alt="">
-
-                                    </div>
-                                    <div class="title">
-                                        <h3><a href="#">Coconut milk rice pudding with ginger</a></h3>
-
-                                    </div>
-                                </div>*@
                         </div>
                     </div>
 
@@ -495,8 +466,10 @@
                     </div>
 
                 </div>
+                <div class="col-md-8">
+                    @RenderBody()
+                </div>
 
-                @RenderBody()
             </div>
 
         </section>
@@ -668,5 +641,56 @@
 
             .filter-item select option:first-child {
                 color: #999;
+            }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+        .dropdown select {
+            width: 165px;
+            padding: 8px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            height : 37px;
+        }
+
+            .dropdown select:focus {
+                outline: none;
+                border-color: #007bff;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
+
+            .dropdown select option {
+                font-size: 14px;
+            }
+
+        /* Style the arrow icon */
+        .dropdown::after {
+            content: "\25BE";
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        /* Style the dropdown menu */
+        .dropdown select::-ms-expand {
+            display: none;
+        }
+
+        .dropdown select {
+            background-color: #000;
+            color: #fff;
+        }
+
+            .dropdown select option {
+                color: #000; /* Màu chữ của các tùy chọn */
             }
 </style>

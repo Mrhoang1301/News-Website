@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\views\\shared\\_layout2.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|solutionrelative:views\\shared\\_layout2.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|c:\\users\\anh.quach\\downloads\\hoang_doan\\hoang_doan\\datn\\magazine\\areas\\admin\\views\\shared\\_leftsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|solutionrelative:areas\\admin\\views\\shared\\_leftsidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{816980F1-2759-4AF3-8ACA-1F657E4A590B}|..\\DataAccess\\DataAccess.csproj|c:\\users\\anh.quach\\downloads\\hoang_doan\\hoang_doan\\datn\\dataaccess\\articlemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\controllers\\homepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|solutionrelative:controllers\\homepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\views\\homepage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC1BFDAA-9FE2-4B14-BDD7-F0E82AF4F120}|Tintuchot.csproj|solutionrelative:views\\homepage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LeftSideBar.cshtml",
+              "DocumentMoniker": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Areas\\Admin\\Views\\Shared\\_LeftSideBar.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_LeftSideBar.cshtml",
+              "ToolTip": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Areas\\Admin\\Views\\Shared\\_LeftSideBar.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_LeftSideBar.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAFUAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-10T08:04:23.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout2.cshtml",
+              "DocumentMoniker": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Views\\Shared\\_Layout2.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout2.cshtml",
+              "ToolTip": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Views\\Shared\\_Layout2.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout2.cshtml",
+              "ViewState": "AQIAAHQBAAAAAAAAAAAAAIYBAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-10T07:57:26.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArticleModel.cs",
+              "DocumentMoniker": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\DataAccess\\ArticleModel.cs",
+              "RelativeDocumentMoniker": "..\\DataAccess\\ArticleModel.cs",
+              "ToolTip": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\DataAccess\\ArticleModel.cs",
+              "RelativeToolTip": "..\\DataAccess\\ArticleModel.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T07:55:53.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Views\\HomePage\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\HomePage\\Index.cshtml",
+              "ToolTip": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Views\\HomePage\\Index.cshtml",
+              "RelativeToolTip": "Views\\HomePage\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-10T07:53:30.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomePageController.cs",
+              "DocumentMoniker": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Controllers\\HomePageController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomePageController.cs",
+              "ToolTip": "C:\\Users\\anh.quach\\Downloads\\Hoang_DoAn\\Hoang_DoAn\\DATN\\Magazine\\Controllers\\HomePageController.cs",
+              "RelativeToolTip": "Controllers\\HomePageController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T07:53:11.018Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -18,5 +18,8 @@ namespace DataAccess.EntityFramework
         public string cmt_cotnent { get; set; }
 
         public DateTime? create_time { get; set; }
+        public article Article { get; set; }
+
+        public account Account { get; set; }
     }
 }

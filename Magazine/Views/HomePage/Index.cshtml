@@ -4,46 +4,57 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
+<div class="container">
+@*    <div class="row mb-3">
+        <div class="col-12">
+            @using (Html.BeginForm("Index", "HomePage", FormMethod.Get))
+            {
+                <div class="input-group">
+                    <input type="text" class="form-control" name="searchst" placeholder="Search articles..." value="@Request.QueryString["searchst"]" />
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            }
+        </div>
+    </div>*@
 
-<div class="mc-post">
-    <div class="list-normal-post">
-        @foreach (var item in Model)
-        {
-            <div class="mp">
-                <div class="mp-img">
-                    <img src="@Html.DisplayFor(modelItem => item.image)" alt="">
-                    <div class="post-wish1">
-                        <i class="fas fa-heart"></i>
+    <div class="mc-post">
+        <div class="list-normal-post">
+            @foreach (var item in Model)
+            {
+                <div class="mp">
+                    <div class="mp-img">
+                        <img src="@Html.DisplayFor(modelItem => item.image)" alt="">
+                        <div class="post-wish1">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="mp-title">
+                        <div style="position: relative; z-index: 10;">
+                            <div class="lp-date">
+                                <div>@(item.create_time.HasValue?item.create_time.Value.ToString("dd") : "")</div>
+                                <span>@(item.create_time.HasValue?item.create_time.Value.ToString("MM") : "")</span>
+                            </div>
+                            <div class="mp-nav">
+                                <span>by</span>
+                                <span>Huy Hoàng</span>
+                                <span>/</span>
+                                <span>Breaking news</span>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="@Url.Action("Detail", "HomePage" , new {id = item.article_id})">
+                                <span>@Html.Raw(item.title)</span>
+                            </a>
+                        </div>
+                        <div class="pretext" style="">
+                            @Html.Raw(item.textbody)
+                        </div>
                     </div>
                 </div>
-                <div class="mp-title">
-                    <div style="position: relative; z-index: 10;">
-                        <div class="lp-date">
-                            <div>@(item.create_time.HasValue?item.create_time.Value.ToString("dd") : "")</div>
-                            <span>@(item.create_time.HasValue?item.create_time.Value.ToString("MM") : "")</span>
-                        </div>
-                        <div class="mp-nav">
-                            <span>by</span>
-                            <span>Huy Hoàng</span>
-                            <span>/</span>
-                            <span>Breaking news</span>
-                        </div>
-                    </div>
-                    <div>
-                        <a href="@Url.Action("Detail", "HomePage" , new {id = item.article_id})">
-                            <span>@Html.Raw(item.title)</span>
-                        </a>
-                    </div>
-                    <div class="pretext" style="">
-                        @Html.Raw(item.textbody)
-                    </div>
-                </div>
-            </div>
 
-        }
+            }
+        </div>
     </div>
-
-
-
 </div>
+
 

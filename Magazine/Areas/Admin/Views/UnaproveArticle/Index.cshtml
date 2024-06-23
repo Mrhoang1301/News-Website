@@ -1,0 +1,80 @@
+﻿@model  IEnumerable<DataAccess.EntityFramework.article>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout1.cshtml";
+}
+<div class="container-fluid admin-artcles">
+    <h1 class="h3 mb-2 text-gray-800">Unaprove Articles</h1>
+    <p class="mb-4">
+        List of all unaprove articles in database
+    </p>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Text body</th>
+                            <th>Create time</th>
+                            <th>Image</th>
+                            <th>User id</th>
+                            <th>Category id</th>
+                            <th>Control</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Text body</th>
+                            <th>Create time</th>
+                            <th>Image</th>
+                            <th>User id</th>
+                            <th>Category id</th>
+                            <th colspan="2">Control</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.article_id">
+                                <td><div>@item.article_id</div></td>
+                                <td style="min-width: 150px;"><div>@item.title</div></td>
+                                <td style="max-width: 300px;"><div>@Html.Raw(item.textbody)</div></td>
+                                <td><div>@(item.create_time.HasValue?item.create_time.Value.ToString("g") : "")</div></td>
+                                <td><div><img style="max-width: 150px" src="@item.image" /></div></td>
+                                <td><div>@item.user_id</div></td>
+                                <td><div>@item.cate_id</div></td>
+                                <td colspan="2">
+                                    <div class="d-flex justify-content-between">
+                                        @using (Html.BeginForm("Approve", "UnaproveArticle", new { id = item.article_id }, FormMethod.Post))
+                                        {
+                                            <button type="submit" style="margin-top:65px" class="btn btn-primary">Approve</button>
+                                        }
+                                        @using (Html.BeginForm("Cancel", "UnaproveArticle", new { id = item.article_id }, FormMethod.Post))
+                                        {
+                                            <textarea class="form-control" id="note" name="note" required></textarea>
+                                            <button type="submit" style="margin-top:2px" class="btn btn-danger">Cancel</button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

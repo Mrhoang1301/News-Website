@@ -17,6 +17,8 @@ namespace DataAccess.EntityFramework
         public virtual DbSet<comment> comments { get; set; }
         public virtual DbSet<user> users { get; set; }
 
+        public virtual DbSet<account> accounts { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

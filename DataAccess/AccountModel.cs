@@ -52,5 +52,24 @@ namespace DataAccess
                 .SingleOrDefault();
             return res > 0;
         }
+
+        public List<account> listAllUsers()
+        {
+            var list = context.accounts.ToList();
+            return list;
+        }
+
+        public int DeleteAccount(int account_id)
+        {
+            var comments = context.Set<comment>()
+                               .Where(c => c.user_id == account_id)
+                               .ToList();
+            context.Set<comment>().RemoveRange(comments);
+
+            var account = context.Set<account>().Find(account_id);
+            context.Set<account>().Remove(account);
+
+            return context.SaveChanges();
+        }
     }
 }

@@ -29,5 +29,12 @@
 
         [Display(Name = "Thể loại")]
         public int? cate_id { get; set; }
+
+        public int? status { get; set; }
+
+        public string note { get; set; }
+        public category category { get; set; }
+
+        public ICollection<comment> comments { get; set; }
     }
 }
